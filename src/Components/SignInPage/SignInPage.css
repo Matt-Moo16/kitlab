@@ -1,0 +1,14 @@
+.SignInPage {
+    text-align: center;
+}
+
+.SignInForm form {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+.SignInForm input {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}

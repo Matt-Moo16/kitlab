@@ -1,0 +1,10 @@
+.HomePageDiv main {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.HomePageDiv header {
+    text-align: center;
+}

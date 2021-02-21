@@ -1,0 +1,14 @@
+* {
+    text-decoration: none; 
+}
+
+img {
+    max-width: 50%;
+    min-width: 200px;
+}
+
+button {
+    font-size: 18px;
+    border-radius: 8px;
+}
+
