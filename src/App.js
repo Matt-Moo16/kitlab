@@ -20,6 +20,7 @@ function App() {
       <Route exact path='/user/landingPage'><LandingPage /></Route>
       <Route exact path='/user/setup_id'><SavedSetupPage /></Route>
       <Route exact path='/user/createSetup'><CreateSetupPage /></Route>
+      <p>To get to the view that a user sees when they are logged in add to the url path '/user/landingPage'.</p>
     </main>
   );
 }
