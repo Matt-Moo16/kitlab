@@ -10,7 +10,7 @@ export default function PrivateRoute({children, ...props}) {
             (TokenService.hasAuthToken()
                   ? [children]
                   : <Redirect
-                      to='/signIn'
+                      to='/'
                       />)
                 }
             />
