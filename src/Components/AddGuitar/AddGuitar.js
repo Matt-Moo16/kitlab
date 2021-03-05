@@ -8,11 +8,9 @@ class AddGuitar extends Component {
 
     handleChange = e => {
         this.setState({selectedGuitar: e.target.selectedIndex})
-        console.log(e.target.selectedIndex) 
     }
 
     render() {
-        console.log(this.props.guitarsInventory)
         return (
             <>
             <div className='AddGuitarInfo'>

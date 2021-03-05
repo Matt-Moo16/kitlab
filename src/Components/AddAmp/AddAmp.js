@@ -8,7 +8,6 @@ class AddAmp extends Component {
     
     handleChange = e => { 
         this.props.onSelectedAmps(e.target.selectedIndex + 51)
-        console.log(e.target.selectedIndex + 51)
         this.setState({selectedAmp: e.target.selectedIndex})
     }
 
