@@ -34,7 +34,6 @@ class SavedSetupPage extends Component {
     handleDelete(event) {
         ApiService.deleteSetup(TokenService.getAuthToken(), parseInt(this.props.setupId))
         .then(res => {
-            console.log(res)
             if (res.error) {
                 this.setState({hasError: true, error: res.error})
             }

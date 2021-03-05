@@ -36,7 +36,6 @@ function App() {
       <PrivateRoute>
         <Route exact path='/user/landingPage'><LandingPage /></Route>
       </PrivateRoute>
-      <p>To get to the view that a user sees when they are logged in add to the url path '/user/landingPage'.</p>
     </main>
   );
 }

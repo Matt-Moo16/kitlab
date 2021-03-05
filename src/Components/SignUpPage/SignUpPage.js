@@ -5,6 +5,7 @@ import './SignUpPage.css'
 import APIService from '../../APIService'
 import ValidationError from '../../ValidationError'
 
+
 class SignUpPage extends Component {
 
     constructor(props) {
@@ -140,8 +141,13 @@ class SignUpPage extends Component {
                         <div className='button'>
                             <button type='submit'
                             onClick={e => {
+                                e.preventDefault()
                                 try {
                                     APIService.postUser(user)
+                                    //return <Redirect to='/signIn'/>
+                                    let getUrl = window.location;
+                                    let baseUrl = getUrl.protocol + "//" + getUrl.host + `/signIn`;
+                                    window.location.href = baseUrl
                                 }
                                 catch(err) {
                                     this.setState({hasError: true, error: err})

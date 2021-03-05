@@ -20,7 +20,6 @@ class LandingPage extends Component {
             const userId = TokenService.getIdFromToken()
             const usersSetups = res.filter(setup => setup.user_id === userId)
             this.setState({setups: usersSetups})
-            console.log(this.state.setups)
         })
         .catch(err => {
             this.setState({hasError: true, error: err})
