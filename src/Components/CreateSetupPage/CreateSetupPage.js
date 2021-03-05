@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
-import PriceSideBar from '../PriceSideBar/PriceSideBar'
 import AddAmp from '../AddAmp/AddAmp'
 import AddGuitar from '../AddGuitar/AddGuitar'
 import AddPedal from '../AddPedal/AddPedal'
 import APIService from '../../APIService'
 import ValidationError from '../../ValidationError'
+import TokenService from '../../TokenService';
 
 class CreateSetupPage extends Component {
     //Create an array of react elements in state
@@ -78,6 +78,49 @@ class CreateSetupPage extends Component {
         }) 
     }
 
+    async getInfoFromDom(data) {
+            // get guitars
+            let guitarsDOM = Array.from(document.getElementsByClassName("AddGuitarInfo"));
+            for(let i = 0; i < guitarsDOM.length; i++) {
+                APIService.getProduct(guitarsDOM[i].children[0].children[1].selectedIndex + 1).then(
+                    response => {
+                        data.gear.guitars.push(response);
+                    }
+                )
+            }
+    
+            // get amps
+            let ampsDOM = Array.from(document.getElementsByClassName("AddAmpInfo"));
+            for(let i = 0; i < ampsDOM.length; i++) {
+                APIService.getProduct(ampsDOM[i].children[0].children[1].selectedIndex + 51).then(
+                    response => {
+                        data.gear.amps.push(response);
+                    }
+                )
+            }
+    
+            // get pedals
+            let pedalsDOM = Array.from(document.getElementsByClassName("AddPedalInfo"));
+            for(let i = 0; i < pedalsDOM.length; i++) {
+                APIService.getProduct(pedalsDOM[i].children[0].children[1].selectedIndex + 77).then(
+                    response => {
+                        data.gear.pedals.push(response);
+                    }
+                )
+            }
+            return data;
+    }
+
+    callDomInfo = async (data) => {
+        let domInfo = await this.getInfoFromDom(data)
+        return domInfo
+    }
+
+    getSetupInfoOnPage = async (data) => {
+        let info = await this.callDomInfo(data)
+        return info;
+    }
+
     handleSubmit(event) {
         event.preventDefault()
 
@@ -96,54 +139,18 @@ class CreateSetupPage extends Component {
         // declare data object to add guitar, amp, and pedal objects on the page to
         let data = {"gear": {"guitars": [], "amps": [], "pedals": []}}
 
-        // get guitars
-        let guitarsDOM = Array.from(document.getElementsByClassName("AddGuitarInfo"));
-        for(let i = 0; i < guitarsDOM.length; i++) {
-            console.log(guitarsDOM[i].children[0].children[1].selectedIndex + 1)
-            APIService.getProduct(guitarsDOM[i].children[0].children[1].selectedIndex + 1).then(
-                response => {
-                    data.gear.guitars.push(response);
-                    console.log(data);
-                }
-            )
-        }
-
-        // get amps
-        let ampsDOM = Array.from(document.getElementsByClassName("AddAmpInfo"));
-        for(let i = 0; i < ampsDOM.length; i++) {
-            console.log(ampsDOM[i].children[0].children[1].selectedIndex + 51)
-            APIService.getProduct(ampsDOM[i].children[0].children[1].selectedIndex + 51).then(
-                response => {
-                    data.gear.amps.push(response);
-                    console.log(data);
-                }
-            )
-        }
-
-        // get pedals
-        let pedalsDOM = Array.from(document.getElementsByClassName("AddPedalInfo"));
-        for(let i = 0; i < pedalsDOM.length; i++) {
-            console.log(pedalsDOM[i].children[0].children[1].selectedIndex + 77)
-            APIService.getProduct(pedalsDOM[i].children[0].children[1].selectedIndex + 77).then(
-                response => {
-                    data.gear.pedals.push(response);
-                    console.log(data);
-                }
-            )
-        }
-
-        // there is a chance this might run into an async error where setup_info empty
-        // b/c it executes faster than the requests above - if this happens,
-        // may need to JSON stringify this inside the API request below
-        let setup_info = JSON.stringify(data)
-
-        // now call post request to add setup - currently have setup_info and setup_name (see logic above)
-        /*
-        // get user ID somehow
-        // get auth token
-        APIService.postSetups(user_id, setup_name, setup_info, authToken)
-        */
-
+        this.getSetupInfoOnPage(data).then(setup_info => {
+            setTimeout(function(){
+                const user_id = TokenService.getIdFromToken()
+                const authToken = TokenService.getAuthToken()
+                APIService.postSetups(user_id, setup_name, setup_info, authToken)
+                .then (res => {
+                    let getUrl = window.location;
+                    let baseUrl = getUrl.protocol + "//" + getUrl.host + `/user/landingPage`;
+                    window.location.href = baseUrl
+                })
+            }, 1000)
+        })
     }
 
     render() {
@@ -164,7 +171,6 @@ class CreateSetupPage extends Component {
                 {guitarComponent.map((item, i) => {return <div key={i}>{item}</div>})}
                 {ampComponent.map((item, i) => {return <div key={i}>{item}</div>})}
                 {pedalComponent.map((item, i) => {return <div key={i}>{item}</div>})}
-                <PriceSideBar />
                 <div className='SaveSetupForm'>
                     <form>
                         <label htmlFor='SetupName'>Name Setup:</label>

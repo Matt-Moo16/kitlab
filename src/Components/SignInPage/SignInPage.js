@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import logo from '../../images/kitlab-removebg-preview.png'
-import {Link} from 'react-router-dom'
+import {Link, Redirect} from 'react-router-dom'
 import './SignInPage.css'
 import APIService from '../../APIService'
 import TokenService from '../../TokenService';
@@ -69,6 +69,7 @@ class SignInPage extends Component {
     render() {
         const usernameError = this.validateUsername()
         const passwordError = this.validatePassword()
+        
         return (
             <>
                 <div className='SignInPage'>
@@ -104,6 +105,7 @@ class SignInPage extends Component {
                                 <button type='submit'
                                 disabled={this.validateUsername() || this.validatePassword()}
                                 onClick={e => this.handleSubmit(e)}>Sign In</button>
+                                {this.state.userIsAuthenticated && (<Redirect to='/user/landingPage'/>)}
                             </div>
                         </form>
                     </div>

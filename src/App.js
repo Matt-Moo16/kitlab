@@ -8,6 +8,7 @@ import SignUpPage from './Components/SignUpPage/SignUpPage'
 import LandingPage from './Components/LandingPage/LandingPage'
 import Header from './Components/Header/Header'
 import SavedSetupPage from './Components/SavedSetupPage/SavedSetupPage'
+import PrivateRoute from './PrivateRoute'
 
 
 function App() {
@@ -16,10 +17,25 @@ function App() {
       <Route  exact path='/'><HomePage /></Route>
       <Route path='/signUp'><SignUpPage /></Route>
       <Route path='/signIn'><SignInPage /></Route>
-      <Route path='/user'><Header /></Route>
-      <Route exact path='/user/landingPage'><LandingPage /></Route>
-      <Route exact path='/user/setup_id'><SavedSetupPage /></Route>
-      <Route exact path='/user/createSetup'><CreateSetupPage /></Route>
+      <Switch>
+      <PrivateRoute>
+        <Route exact path='/:setup_id' render={
+          (routeProps) => {
+            const setupId = routeProps.match.params.setup_id
+            return <SavedSetupPage setupId={setupId}/>
+          }
+        }></Route>
+      </PrivateRoute>
+      </Switch>
+      <PrivateRoute>
+        <Route path='/user'><Header /></Route>
+      </PrivateRoute>
+      <PrivateRoute>
+        <Route exact path='/user/createSetup'><CreateSetupPage /></Route>
+      </PrivateRoute>
+      <PrivateRoute>
+        <Route exact path='/user/landingPage'><LandingPage /></Route>
+      </PrivateRoute>
       <p>To get to the view that a user sees when they are logged in add to the url path '/user/landingPage'.</p>
     </main>
   );

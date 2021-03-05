@@ -55,7 +55,7 @@ const ApiService = {
         return fetch(`${config.API_ENDPOINT}/setups`, {
             method: 'GET',
             headers: {
-                'Authorization': 'Bearer' + authToken,
+                'Authorization': 'Bearer ' + authToken,
                 'content-type': 'application/json'
             }
         })
@@ -69,7 +69,7 @@ const ApiService = {
         return fetch(`${config.API_ENDPOINT}/setups`, {
             method: 'POST',
             headers: {
-                'Authorization': 'Bearer' + authToken,
+                'Authorization': 'Bearer ' + authToken,
                 'content-type': 'application/json',
             },
             body: JSON.stringify({user_id, setup_name, setup_info})
@@ -84,7 +84,7 @@ const ApiService = {
         return fetch(`${config.API_ENDPOINT}/setups/${setupId}`, {
             method: 'GET',
             headers: {
-                'Authorization': 'Bearer' + authToken,
+                'Authorization': 'Bearer ' + authToken,
                 'content-type': 'application/json'
             },
         })
@@ -98,14 +98,14 @@ const ApiService = {
         return fetch(`${config.API_ENDPOINT}/setups/${setupId}`, {
             method: 'DELETE',
             headers: {
-                'Authorization': 'Bearer' + authToken,
+                'Authorization': 'Bearer ' + authToken,
                 'content-type': 'application/json'
             },
         })
         .then(res => 
             (!res.ok)
             ? res.json().then(e => Promise.reject(e))
-            : res.json()
+            : res
         )
     },
 }

@@ -84,8 +84,8 @@ class SignUpPage extends Component {
         const user = {name: this.state.name.value, username: this.state.username.value, password: this.state.password.value}
         const nameError = this.validateName()
         const usernameError = this.validateUsername()
-        const passwordError = this.passwordError()
-        const confirmPasswordError = this.confirmPasswordError()
+        const passwordError = this.validatePassword()
+        const confirmPasswordError = this.validateConfirmPassword()
         return (
             <>
             <div className='SignUpPage'>

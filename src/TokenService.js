@@ -13,8 +13,14 @@ const TokenService = {
     hasAuthToken() {
         return !!TokenService.getAuthToken()
     },
-    makeBasicAuthToken(email, password) {
-        return window.btoa(`${email}:${password}`)
+    makeBasicAuthToken(username, password) {
+        return window.btoa(`${username}:${password}`)
+    },
+    getIdFromToken() {
+        const authToken = TokenService.getAuthToken()
+            let base64Url = authToken.split('.')[1];
+            let base64 = base64Url.replace('-', '+').replace('_', '/');
+            return JSON.parse(atob(base64)).user_id
     }
 }
 
