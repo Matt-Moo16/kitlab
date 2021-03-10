@@ -26,6 +26,7 @@
 
 
 .HomePageDiv button {
+    color: black;
     font-size: 18px;
     border-radius: 8px;
     margin: auto 10px 10px 10px;
@@ -39,4 +40,8 @@
 .HomePageDiv button:active {
     box-shadow: -2px 2px 0 #FF928B;
     transform: translateY(3px);
+}
+
+.HomePageDiv button a {
+    color: black;
 }
