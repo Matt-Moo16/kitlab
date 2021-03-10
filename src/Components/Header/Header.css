@@ -11,6 +11,10 @@
     height: auto;
 }
 
+.header button a {
+    color: black;
+}
+
 .header button {
     font-size: 18px;
     border-radius: 8px;
