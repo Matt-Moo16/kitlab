@@ -2,7 +2,7 @@
 
 ## Link 
 
-[Giftwrap](https://kitlab-matt-moo16.vercel.app/)
+[Kitlab](https://kitlab-matt-moo16.vercel.app/)
 
 ## Screenshot
 ![Screenshot](https://user-images.githubusercontent.com/65912593/110573158-c2189d00-8128-11eb-80aa-af354f62bc35.png)
