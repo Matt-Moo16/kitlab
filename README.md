@@ -1,6 +1,45 @@
-# Getting Started with Create React App
+# Kitlab
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Link 
+
+[Giftwrap](https://kitlab-matt-moo16.vercel.app/)
+
+## Screenshot
+![Screenshot](https://user-images.githubusercontent.com/65912593/110573158-c2189d00-8128-11eb-80aa-af354f62bc35.png)
+
+## Server/Backend 
+[Link to server](https://github.com/Matt-Moo16/kitlab-app-server)
+
+### API Endpoints
+
+#### /auth
+To use this endpoint /login is also needed to make the api call, and this endpoint is used to login users. This endpoint has only one CRUD operation and that is POST. No authorization needed for this endpoint. 
+
+#### /users
+This endpoint has one CRUD operation and this is POST. No authorization is needed for the endpoint. This endpoint is used to sign up users and add them to the /auth/login endpoint. 
+
+#### /products
+The /products endpoint has one CRUD operation and this is GET. No authorization is needed for this endpoint. This endpoint is populated into every users account. 
+
+##### /products/:product_id 
+This endpoint uses both GET and DELETE CRUD operations. Authorization is not needed for both of these operations for this endpoint. The GET operation will get a certain porduct after a product id is inputed as a paramater. The DELETE operation will delete a product by getting the product id. 
+
+#### /setups
+The /setups endpoint uses both GET and POST CRUD operations. Authorization is needed for both the GET and  POST operation of the endpoint. The GET operation will return a list of all the setups of a user. The POST operation will add a new setup to the list of setups for a user.
+
+##### /setups/:setup_id
+This endpoint uses both GET and DELETE operations. Authorization is needed for both of the operations for this endpoint. The GET will get a certain setup after a setup id is inputed as a paramater. The DELETE operation will delete a setup using the setup id. 
+
+## About/Synopsis
+Kitlab is an app that allows users to see guitar gear that they might want all together in one place to get an idea of what a setup might look like. Users can create custom setups of different gear including guitars, pedals, and amps and then save those setups. Once the setups are saved users can view their custom setups and click each product in the setup to go to its manufacturer product page. 
+
+## Technologies Used
+* React
+* JavaScript
+* CSS
+* HTML
+* Node
+* PostgreSQL
 
 ## Available Scripts
 
@@ -39,32 +78,3 @@ Instead, it will copy all the configuration files and the transitive dependencie
 
 You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
