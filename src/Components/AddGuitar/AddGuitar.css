@@ -1,0 +1,34 @@
+.AddGuitarInfo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 10px;
+}
+
+.GuitarDropdown {
+    margin: 5px auto 10px auto;
+}
+
+.GuitarDropdown select {
+    margin: auto;
+    background-color: #EFE9AE;
+    border-color: transparent;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.GuitarDropdown label {
+    margin: auto 5px auto 10px;
+}
+
+.AddGuitarImage {
+    text-align: center;
+}
+
+.AddGuitarName {
+    margin: 5px auto 10px auto;
+}
+
+.GuitarDropdown option {
+    margin: auto 10px auto 10px;
+}

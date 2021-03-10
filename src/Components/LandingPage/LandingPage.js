@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {Link} from 'react-router-dom'
 import ApiService from '../../APIService';
 import TokenService from '../../TokenService';
+import './LandingPage.css'
 
 class LandingPage extends Component {
 
@@ -28,7 +29,7 @@ class LandingPage extends Component {
 
     render() {
         return (
-            <>
+            <div className='LandingPageDiv'>
                 <div className='SetupListDiv'>
                     <ul>
                         {this.state.setups ? (
@@ -46,7 +47,7 @@ class LandingPage extends Component {
                         </Link>
                     </button>
                 </div>
-            </>
+            </div>
         )
     }
 }

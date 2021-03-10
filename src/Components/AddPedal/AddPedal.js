@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import './AddPedal.css'
 
 class AddPedal extends Component {
 

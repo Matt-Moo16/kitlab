@@ -2,7 +2,7 @@
    text-align: center;
 }
 
- form {
+.SignUpForm form {
     display: flex;
     flex-direction: column;
     justify-content: left;
@@ -11,6 +11,33 @@
 }
 
 .SignUpForm input {
-    margin-top: 5px;
-    margin-bottom: 5px;
+    margin: 5px;
+} 
+
+.SignUpPage button {
+    font-size: 18px;
+    border-radius: 8px;
+    margin: auto 10px 10px 10px;
+    padding: 5px;
+    border: none;
+    background-color: #CDEAC0;
+    box-shadow: -5px 5px 0 #FFAC81;
+}
+
+
+.SignUpPage button:active {
+    box-shadow: -2px 2px 0 #FFAC81;
+    transform: translateY(3px);
+}
+
+.SignUpPage p a {
+    font-size: 16px;
+    color: black;
+    transition-property: all;
+    transition-duration: 1s;
+    transition-timing-function: linear;
+}
+
+.SignUpPage p a:hover {
+    color: #FF928B;
 }

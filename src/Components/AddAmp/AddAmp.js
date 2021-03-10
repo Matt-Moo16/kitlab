@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import './AddAmp.css'
 
 class AddAmp extends Component {
 

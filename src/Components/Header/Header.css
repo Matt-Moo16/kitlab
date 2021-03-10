@@ -1,0 +1,28 @@
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-content: flex-end;
+}
+
+.header img {
+    width: 50%;
+    max-width: 250px;
+    height: auto;
+}
+
+.header button {
+    font-size: 18px;
+    border-radius: 8px;
+    margin: auto 10px auto 10px;
+    padding: 5px;
+    border: none;
+    background-color: #CDEAC0;
+    box-shadow: -5px 5px 0 #FFAC81;
+}
+
+
+.header button:active {
+    box-shadow: -2px 2px 0 #FFAC81;
+    transform: translateY(3px);
+}

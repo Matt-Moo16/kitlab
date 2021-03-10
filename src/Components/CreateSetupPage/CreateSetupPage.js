@@ -5,6 +5,7 @@ import AddPedal from '../AddPedal/AddPedal'
 import APIService from '../../APIService'
 import ValidationError from '../../ValidationError'
 import TokenService from '../../TokenService';
+import './CreateSetupPage.css'
 
 class CreateSetupPage extends Component {
     //Create an array of react elements in state
@@ -158,32 +159,34 @@ class CreateSetupPage extends Component {
         const ampComponent = this.state.ampComponent
         const pedalComponent = this.state.pedalComponent
         return (
-            <>
-                <div className='AddGuitarDiv'>
-                    <button type='button' onClick={e => this.handleGuitarButtonClick()}>Add Guitar</button>
-                </div>
-                <div className='AddAmpDiv'>
-                    <button type='button' onClick={e => this.handleAmpButtonClick()}>Add Amp</button>
-                </div>
-                <div className='AddPedalDiv'>
-                    <button type='button' onClick={e => this.handlePedalButtonClick()}>Add Pedal</button>
+            <div className='CreateSetupDiv'>
+                <div className='ButtonsAndForm'>
+                    <div className='AddGuitarDiv'>
+                        <button type='button' onClick={e => this.handleGuitarButtonClick()}>Add Guitar</button>
+                    </div>
+                    <div className='AddAmpDiv'>
+                        <button type='button' onClick={e => this.handleAmpButtonClick()}>Add Amp</button>
+                    </div>
+                    <div className='AddPedalDiv'>
+                        <button type='button' onClick={e => this.handlePedalButtonClick()}>Add Pedal</button>
+                    </div>
+                    <div className='SaveSetupForm'>
+                        <form>
+                            <label htmlFor='SetupName'>Name Setup:</label>
+                            <input
+                            type='text'
+                            name='setup-name'
+                            id='SetupName'></input>
+                            <button type='submit'
+                            onClick={e => this.handleSubmit(e)}>Save Setup</button>
+                            {this.state.hasError && <ValidationError message={this.state.error}/>}
+                        </form>
+                    </div>
                 </div>
                 {guitarComponent.map((item, i) => {return <div key={i}>{item}</div>})}
                 {ampComponent.map((item, i) => {return <div key={i}>{item}</div>})}
                 {pedalComponent.map((item, i) => {return <div key={i}>{item}</div>})}
-                <div className='SaveSetupForm'>
-                    <form>
-                        <label htmlFor='SetupName'>Name Setup:</label>
-                        <input
-                        type='text'
-                        name='setup-name'
-                        id='SetupName'></input>
-                        <button type='submit'
-                        onClick={e => this.handleSubmit(e)}>Save Setup</button>
-                        {this.state.hasError && <ValidationError message={this.state.error}/>}
-                    </form>
-                </div>
-            </>
+            </div>
         )
     }
     

@@ -3,6 +3,7 @@ import ApiService from '../../APIService'
 import TokenService from '../../TokenService';
 import ValidationError from '../../ValidationError';
 import Header from '../Header/Header'
+import './SavedSetupPage.css'
 
 class SavedSetupPage extends Component {
     // Add verifacation for delete button
@@ -47,40 +48,42 @@ class SavedSetupPage extends Component {
 
     render() {
         return (
-            <>
+            <div> 
             <header>
                 <Header />
             </header>
-                <h2>{this.state.name}</h2>
-                <ul>
-                    {this.state.guitars ? (
-                        this.state.guitars.map((guitar, i) => {
-                            return  <li key={i}>
-                                        <a href={guitar.url} target='_blank'><h2>{guitar.name}</h2></a>
-                                        <img src={guitar.product_image} alt={guitar.name}></img>
-                                    </li>
-                    })) : <div></div>}
-                    {this.state.amps ? (
-                        this.state.amps.map((amp, i) => {
-                            return  <li key={i}>
-                                        <a href={amp.url} target='_blank'><h2>{amp.name}</h2></a>
-                                        <img src={amp.product_image} alt={amp.name}></img>
-                                    </li>
-                    })) : <div></div>}
-                    {this.state.pedals ? (
-                        this.state.pedals.map((pedal, i) => {
-                            return  <li key={i}>
-                                        <a href={pedal.url} target='_blank'><h2>{pedal.name}</h2></a>
-                                        <img src={pedal.product_image} alt={pedal.name}></img>
-                                    </li>
-                    })) : <div></div>}
-                </ul>
-                <div className='DeleteButtonDiv'>
-                    <button type='button'
-                    onClick={e => this.handleDelete(e)}>Delete</button>
-                    {this.state.hasError && <ValidationError message={this.state.error}/>}
+                <div className='SavedPageDiv'>
+                    <h2>{this.state.name}</h2>
+                    <ul>
+                        {this.state.guitars ? (
+                            this.state.guitars.map((guitar, i) => {
+                                return  <li key={i}>
+                                            <a href={guitar.url} target='_blank'><h2>{guitar.name}</h2></a>
+                                            <img src={guitar.product_image} alt={guitar.name}></img>
+                                        </li>
+                        })) : <div></div>}
+                        {this.state.amps ? (
+                            this.state.amps.map((amp, i) => {
+                                return  <li key={i}>
+                                            <a href={amp.url} target='_blank'><h2>{amp.name}</h2></a>
+                                            <img src={amp.product_image} alt={amp.name}></img>
+                                        </li>
+                        })) : <div></div>}
+                        {this.state.pedals ? (
+                            this.state.pedals.map((pedal, i) => {
+                                return  <li key={i} className='PedalsImage'>
+                                            <a href={pedal.url} target='_blank'><h2>{pedal.name}</h2></a>
+                                            <img src={pedal.product_image} alt={pedal.name}></img>
+                                        </li>
+                        })) : <div></div>}
+                    </ul>
+                    <div className='DeleteButtonDiv'>
+                        <button type='button'
+                        onClick={e => this.handleDelete(e)}>Delete</button>
+                        {this.state.hasError && <ValidationError message={this.state.error}/>}
+                    </div>
                 </div>
-            </>
+            </div>
         )
     }
 } 

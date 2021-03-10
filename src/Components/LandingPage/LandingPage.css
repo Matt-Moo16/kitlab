@@ -1,0 +1,40 @@
+.SetupListDiv {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.CreateSetupButton {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.SetupListDiv a {
+    font-size: 24px;
+    color: black;
+    transition-property: all;
+    transition-duration: 1s;
+    transition-timing-function: linear;
+}
+
+.SetupListDiv a:hover {
+    color: #FF928B;
+}
+
+.CreateSetupButton button a {
+    color: black;
+}
+
+.CreateSetupButton button {
+    padding: 5px;
+    border: none;
+    background-color: #CDEAC0;
+    box-shadow: -5px 5px 0 #FFAC81;
+}
+
+.CreateSetupButton button:active {
+    box-shadow: -2px 2px 0 #FFAC81;
+    transform: translateY(3px);
+}

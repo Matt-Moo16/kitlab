@@ -1,6 +1,12 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Cutive+Mono&display=swap');
+
 * {
     text-decoration: none; 
+    list-style: none;
+    font-family: 'Cutive Mono', monospace;
 }
+
 
 img {
     max-width: 50%;

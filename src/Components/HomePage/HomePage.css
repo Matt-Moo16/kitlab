@@ -8,3 +8,35 @@
 .HomePageDiv header {
     text-align: center;
 }
+
+.HomePageDiv h2 {
+    text-align: center;
+}
+
+.HomePageDiv p {
+    margin: auto 15px 10px 15px;
+}
+
+.HomePageDiv img {
+    height: auto;
+    width: 50%;
+    max-width: 400px;
+}
+
+
+
+.HomePageDiv button {
+    font-size: 18px;
+    border-radius: 8px;
+    margin: auto 10px 10px 10px;
+    padding: 5px;
+    border: none;
+    background-color: #CDEAC0;
+    box-shadow: -5px 5px 0 #FF928B;
+}
+
+
+.HomePageDiv button:active {
+    box-shadow: -2px 2px 0 #FF928B;
+    transform: translateY(3px);
+}
